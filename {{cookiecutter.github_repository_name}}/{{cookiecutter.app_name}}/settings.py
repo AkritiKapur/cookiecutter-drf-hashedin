@@ -123,6 +123,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+{% if cookiecutter.db_type == 'sqlite3' %}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -130,25 +131,33 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'db_name',
-#         'USER': 'db_user_name',
-#         'PASSWORD': 'db_password',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'db_name',
-#         'USER': 'db_user_name',
-#         'PASSWORD': 'db_password'
-#     }
-# }
+{% endif %}
+
+{% if cookiecutter.db_type == 'postgres' %}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_name',
+        'USER': 'db_user_name',
+        'PASSWORD': 'db_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+{% endif %}
+
+{% if cookiecutter.db_type == 'mysql' %}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_name',
+        'USER': 'db_user_name',
+        'PASSWORD': 'db_password'
+    }
+}
+
+{% endif %}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
