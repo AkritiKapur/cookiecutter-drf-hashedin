@@ -137,9 +137,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_name',
-        'USER': 'db_user_name',
-        'PASSWORD': 'db_password',
+        'NAME': '{{cookiecutter.db_name}}',
+        'USER': '{{cookiecutter.db_username}}',
+        'PASSWORD': '{{cookiecutter.db_password}}',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -150,9 +150,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_name',
-        'USER': 'db_user_name',
-        'PASSWORD': 'db_password'
+        'NAME': '{{cookiecutter.db_name}}',
+        'USER': '{{cookiecutter.db_username}}',
+        'PASSWORD': '{{cookiecutter.db_password}}',
     }
 }
 
