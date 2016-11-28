@@ -23,7 +23,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/sampleproject_logs.log'),
+            'filename': os.path.join(BASE_DIR, 'logs/{{ cookiecutter.app_name }}_logs.log'),
             'formatter': 'verbose'
         },
     },
