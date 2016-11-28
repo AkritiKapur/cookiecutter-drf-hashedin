@@ -27,26 +27,8 @@ git remote add origin git@github.com:{{cookiecutter.github_username}}/{{cookiecu
 
 Migrate, create a superuser, and run the server:
 ```bash
-python {{cookiecutter.app_name}}/manage.py migrate
-python {{cookiecutter.app_name}}/manage.py createsuperuser
-python {{cookiecutter.app_name}}/manage.py runserver
-```
-
-# Create Servers
-By default the included fabfile will setup three environments:
-
-- dev -- The bleeding edge of development
-- qa -- For quality assurance testing
-- prod -- For the live application
-
-Create these servers on Heroku with:
-
-```bash
-fab init
-```
-
-# Automated Deployment
-Deployment is handled via Travis. When builds pass Travis will automatically deploy that branch to Heroku. Enable this with:
-```bash
-travis encrypt $(heroku auth:token) --add deploy.api_key
+python manage.py migrate
+python manage.py makemigrations {{cookiecuter.app_name}}
+python manage.py createsuperuser
+python manage.py runserver
 ```
