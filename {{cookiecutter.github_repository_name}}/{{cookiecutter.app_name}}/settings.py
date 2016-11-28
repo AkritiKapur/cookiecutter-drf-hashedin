@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'whitenoise.runserver_nostatic',
+    '{{cookiecutter.app_name}}',
 ]
 
 MIDDLEWARE_CLASSES = [
